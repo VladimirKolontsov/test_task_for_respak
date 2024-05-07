@@ -1,7 +1,7 @@
 Инструкция по запуску приложения
 
 1. Скачиваем проект:
-   ссылка
+   https://github.com/VladimirKolontsov/test_task_for_respak/tree/master
 
 2. Открываем его в IDEA.
 
