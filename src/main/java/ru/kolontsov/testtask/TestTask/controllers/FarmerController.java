@@ -175,6 +175,7 @@ public class FarmerController {
     }
 
     @PutMapping("/farm-ar/{id}")
+    @Operation(summary = "Changing state of farmer")
     public Farmer archiveFarmer(@Parameter(description = "Unique identifier of farmer")
                                      @PathVariable Long id) {
         return farmerService.archiveFarmer(id);

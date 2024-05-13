@@ -123,6 +123,7 @@ public class DistrictController {
      * @Return - ничего не возвращает, изменяет статус архивности для района в БД
      */
     @PutMapping("/dist-ar/{id}")
+    @Operation(summary = "Changing state of district to archive")
     public Districts archiveDistrict(@Parameter(description = "Unique identifier of district")
                                          @PathVariable Long id) {
         return districtsService.archiveDistrict(id);
