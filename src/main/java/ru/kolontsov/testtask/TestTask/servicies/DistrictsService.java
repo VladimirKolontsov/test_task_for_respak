@@ -1,5 +1,6 @@
 package ru.kolontsov.testtask.TestTask.servicies;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kolontsov.testtask.TestTask.entities.Districts;
@@ -14,8 +15,10 @@ import java.util.stream.Collectors;
  */
 @Service
 public class DistrictsService {
+
     private final DistrictsRepository districtsRepository;
 
+    @Autowired
     public DistrictsService(DistrictsRepository districtsRepository) {
         this.districtsRepository = districtsRepository;
     }
@@ -96,10 +99,11 @@ public class DistrictsService {
     }
 
     /**
-     * Метод изменить данные района - добавляет новый район в БД в соответствие с теми данными, которые были переданы
+     * Метод изменить данные района - изменяет данные района в БД в соответствие с теми данными, которые были переданы
      * @Param id - уникальный идентификатор района, name - название района, code - код района, is_archive - статус архивности
      * @Return изменяет данные переданного района в БД
      */
+    @Transactional
     public Districts updateDistrict(Long id, String name, Integer code, Boolean isArchive) {
 
         Districts existingDistrict = districtsRepository.findById(id).orElse(null);
@@ -116,7 +120,7 @@ public class DistrictsService {
     /**
      * Метод изменить статус архивности района - изменяет статус архивности переданного района, если требуется
      * @Param id - уникальный идентификатор района
-     * @Return изменяет данные переданного района в БД
+     * @Return изменяет статус архивности переданного района в БД
      */
     public Districts archiveDistrict(Long id) {
         Districts existingDistrict = districtsRepository.findById(id).orElse(null);

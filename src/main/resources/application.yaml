@@ -13,4 +13,4 @@ spring:
     driver-class-name: org.postgresql.Driver
 springdoc:
   swagger-ui:
-    path: /swag-run.html
+    path: /swag.html

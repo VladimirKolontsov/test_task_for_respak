@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "1f85c8f0-08bb-43c6-b448-ea74be1f4b01",
+		"name": "registry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32379675"
+	},
+	"item": [
+		{
+			"name": "show all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/district-name?name=Barabinskiy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"district-name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Barabinskiy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show by code one",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/district-code?code=201",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"district-code"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "201"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show by code list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/district-code?code=701",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"district-code"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "701"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show by name and code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/district-namecode?name=Kolyvanskiy&code=501",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"district-namecode"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Kolyvanskiy"
+						},
+						{
+							"key": "code",
+							"value": "501"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add district",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"test add\",\n  \"code\": 123,\n  \"is_archive\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change dist",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"test change\",\n  \"code\": 12333,\n  \"is_archive\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/update/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"update",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "is archive",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/dist-ar/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"dist-ar",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

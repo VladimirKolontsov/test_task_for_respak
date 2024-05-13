@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "a1edc774-ab32-45ba-9489-3e98a9c6af8a",
+		"name": "farmer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32379675"
+	},
+	"item": [
+		{
+			"name": "full list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/all-farm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"all-farm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by name org",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/all-farm-nameorg?name=Roga",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"all-farm-nameorg"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Roga"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by inn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/all-farm-inn?inn=123456789021",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"all-farm-inn"
+					],
+					"query": [
+						{
+							"key": "inn",
+							"value": "123456789021"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by dist name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/all-farm-distname?name=Iskitimskiy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"all-farm-distname"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Iskitimskiy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by date registration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/all-farm-datereg?date=2024-04-05",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"all-farm-datereg"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-04-05"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by state",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/all-farm-state?state=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"all-farm-state"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add fermer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"organizationName\": \"testAddFarmerAndPlantField\",\n    \"legalForm\": \"IP\",\n    \"inn\": \"123456789444\",\n    \"kpp\": \"564738499\",\n    \"ogrn\": \"463759675647399\",\n    \"registrationDistrictId\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/add-farmer?plant-id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"add-farmer"
+					],
+					"query": [
+						{
+							"key": "plant-id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change farmer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"organizationName\": \"testUpdate\",\n    \"legalForm\": \"YL\",\n    \"inn\": \"123456789000\",\n    \"kpp\": \"564738400\",\n    \"ogrn\": \"463759675647300\",\n    \"registrationDistrictId\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/update-farmer/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"update-farmer",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change state archive",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/farm-ar/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"farm-ar",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

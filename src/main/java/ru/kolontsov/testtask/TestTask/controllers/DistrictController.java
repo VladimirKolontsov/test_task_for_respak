@@ -16,7 +16,7 @@ import ru.kolontsov.testtask.TestTask.entities.Districts;
 import ru.kolontsov.testtask.TestTask.servicies.DistrictsService;
 
 import java.util.List;
-//TODO заменить все русские комментарии, сделать метод по отправки в архив
+
 /**
  Класс контроллер по работе с реестром районов - вывод их полный список, делает фильтрацию отдельно по названию,
  коду, одновременно и по названию и по коду, можно добавить новый район, изменить его данные, а также отправить в архив.
@@ -24,17 +24,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 @Tag(name = "Districts", description = "Methods for working with districts")
-public class Controller {
+public class DistrictController {
 
     private final DistrictsService districtsService;
 
     @Autowired
-    public Controller(DistrictsService districtsService) {
+    public DistrictController(DistrictsService districtsService) {
         this.districtsService = districtsService;
     }
 
     /**
-     * Метод показать весь список - возвращает полный список неархивных районов.
+     * Метод показать весь список - возвращает полный список неархивных районов
      *
      * @Return - возвращает список районов
      */
@@ -45,7 +45,7 @@ public class Controller {
     }
 
     /**
-     * Метод вывести район по названию - выводит всю информацию по району по его названию.
+     * Метод вывести район по названию - выводит всю информацию по району по его названию
      *
      * @Param name - название района
      * @Return - возвращает район
@@ -58,7 +58,7 @@ public class Controller {
     }
 
     /**
-     * Метод вывести районы по коду - выводит всю информацию по районам по его коду.
+     * Метод вывести районы по коду - выводит всю информацию по районам по его коду
      *
      * @Param code - код района
      * @Return - возвращает список районов
@@ -71,7 +71,7 @@ public class Controller {
     }
 
     /**
-     * Метод вывести районы по названию и коду - выводит всю информацию по районам по названию и коду.
+     * Метод вывести районы по названию и коду - выводит всю информацию по районам по названию и коду
      *
      * @Param name - название района, code - код района
      * @Return - возвращает список районов
@@ -103,12 +103,12 @@ public class Controller {
      * должен по переданному уникальному идентификатору изменить текущие данные о районе, на переданные
      *
      * @PathVariable id - уникальный идентификатор района
-     * @RequestBody request - тело запроса на изменение данных о районе
+     * @RequestBody districts - тело запроса на изменение данных о районе
      * @Return - ничего не позвращает, изменяет текущую запись в БД
      */
     @PutMapping("/update/{id}")
     @Operation(summary = "Changing information about exact district")
-    public void addNewDisctrict(@Parameter(description = "Unique identifier of district")
+    public void changingDistrictInformation(@Parameter(description = "Unique identifier of district")
                                     @PathVariable Long id,
                                 @Parameter(description = "Body with district attributes")
                                     @RequestBody Districts districts) {
@@ -120,10 +120,11 @@ public class Controller {
      * должен по переданному уникальному идентификатору отправить район в архив, если он в нем не находится
      *
      * @PathVariable id - уникальный идентификатор района
-     * @Return - ничего не позвращает, изменяет статус архивности для района в БД
+     * @Return - ничего не возвращает, изменяет статус архивности для района в БД
      */
     @PutMapping("/dist-ar/{id}")
-    public Districts archiveDistrict(@PathVariable Long id) {
+    public Districts archiveDistrict(@Parameter(description = "Unique identifier of district")
+                                         @PathVariable Long id) {
         return districtsService.archiveDistrict(id);
     }
 

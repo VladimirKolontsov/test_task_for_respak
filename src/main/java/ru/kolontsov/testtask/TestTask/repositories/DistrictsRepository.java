@@ -9,6 +9,8 @@ import java.util.List;
 
 @Repository
 public interface DistrictsRepository extends JpaRepository<Districts, Long> {
+
+//    Districts findById(Long id);
     Districts findByName(String name);
 
     List<Districts> findByCode(Integer code);
